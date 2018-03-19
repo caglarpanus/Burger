@@ -1,0 +1,18 @@
+/* body {
+    background: url("../images/background.jpg");
+    background-size: 963.934px 472.528px;
+    background-repeat: no-repeat;
+    background-size: auto;
+} */
+
+body{
+    background-color: yellow;
+}
+
+.image-holder{
+    text-align: center;
+}
+
+.input{
+    text-align: center;
+}

@@ -4,11 +4,11 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", function(req,res){
-    burger.show(function(result){
+    burger.show(function(data){
         var hbs = {
             burger:data
         }
-        res.render("index",result);
+        res.render("index",hbs);
     });
 });
 

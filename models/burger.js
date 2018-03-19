@@ -3,13 +3,13 @@ const orm = require("../config/orm.js");
 var burger = {
     show: function(cb){
         orm.getAll("burgers", function(res){
-            cb(res);
+             cb(res);
         });
     },
 
     create: function(value,cb){
         orm.add("burgers","name", value, function(res){
-            cb(res);
+             cb(res);
         });
     },
 
