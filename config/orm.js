@@ -18,7 +18,7 @@ var orm = {
             cb(data);
         });
     },
-    update: function(id,cb){
+    updateBurger: function(id,cb){
         var query = "UPDATE burgers SET devoured = 1 WHERE id = ?";
         connection.query(query,[id], function(err,data){
             if(err) throw err;
@@ -27,3 +27,5 @@ var orm = {
         });
     }
 };
+
+module.exports = orm;
