@@ -1,36 +1,63 @@
-<div class="image-holder">
-    <img src="../assets/images/burger.jpg" width="350" height="250">
-    <h2> WELCOME TO EAT-DA-BURGER </h2>
-</div>
 
-<div class="input">
-    <input id="text">
-    <button id="submit-button">Submit</button>
-    <h3>Enter a burger you want to eat, and click "Submit" button!</h3>
-</div>
+<!-- BURGER PICTURE AND HEADLINE --> 
 
-<div class="not-eaten">
-    <h2>NOT Eaten!!!</h2>
-    {{#each burgers}}
-        {{#unless devoured}}
+<div class="container bg">
+	<div class="row">
+	    <div class="center col-sm-12">
+			<img src="../assets/images/burger.jpg" alt="Eat-Da-Burger">
+	        <h2>Eat-Da-Burger</h2>
+	    </div>
+  	</div>
 
-        <ul>{{id}}. {{name}}<button class="devoure-button">Devoure</button></ul>
+<!-- THE ONES THAT WERE ADDED, AND READY TO BE EATEN -->
+	<div class="row">
+	    <div class="col-sm-6">
 
-        {{/unless}}
-   
-    {{/each}}
+			<br>
+			<h3>Burgers Available To Eat!</h3>
 
-</div>
+			<ul>
 
-<div class="eaten">
-    <h2>Eaten!!!</h2>
+			  {{#each burgers}}
+			    {{#unless this.devoured}}
+			      <li>
+			      	{{this.id}}.{{this.name}}
+			          <input type="hidden" name="devoured" value="true">
+			          <button class="btn-primary" type="submit" id="devour-button" data-id="{{id}}">Devour It!</button>
+			      </li>
+			    {{/unless}}
+			  {{/each}}
 
-    {{#each burgers}}
-        {{#if devoured}}
+			</ul>
 
-            <ul>{{id}}. {{name}}</ul>
+	    </div>
 
-        {{/if}}
-   
-    {{/each}}
+<!-- THE ONES THAT WERE ALREADY EATEN -->
+	    <div class="col-sm-6">
+
+			<h3>Burgers That Have Been Eaten!</h3>
+			
+			  {{#each burgers}}
+			    {{#if this.devoured}}
+			      <li>
+			      	{{this.id}}.{{this.name}}
+			      </li>
+			    {{/if}}
+			  {{/each}}
+			
+	    </div>
+
+  	</div>
+
+	<!-- BURGER INPUT TEXT AND SUBMIT AREA-->
+	<div class="row">
+	    <div class="center col-sm-12">
+			<h3>Add A Burger!</h3>
+			  <div class="form-group">
+			    <p>Enter a burger you want to order and click the Submit button.</p>
+			    <input type="text" id="burger-text" name="name">
+			  </div>
+			  <button class="btn-primary" type="submit" id="submit-button">Submit</button>
+	    </div>
+  	</div>
 </div>
