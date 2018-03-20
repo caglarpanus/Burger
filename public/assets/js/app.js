@@ -16,7 +16,8 @@ $(function () {
         event.preventDefault();
         var id = $(this).attr('data-id');
         $.ajax("/api/burgers/" + id, {
-            type:"PUT"
+            type:"PUT",
+            data: {"devoured": true}
         }).then(
             function () {
                 console.log("Item devoured!");
