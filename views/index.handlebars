@@ -16,19 +16,13 @@
 			<br>
 			<h3>Burgers Available To Eat!</h3>
 
-			<ul>
-
-			  {{#each burgers}}
-			    {{#unless this.devoured}}
-			      <li>
-			      	{{this.id}}.{{this.name}}
-			          <input type="hidden" name="devoured" value="true">
-			          <button class="btn-primary" type="submit" id="devour-button" data-id="{{id}}">Devour It!</button>
-			      </li>
-			    {{/unless}}
-			  {{/each}}
-
-			</ul>
+					<ul>
+						{{#each burgers}}
+							{{#unless devoured}}
+								<ul>{{this.id}}. {{this.name}} <button class="devour-button" data-id="{{id}}">Devour It!</button></ul>
+							{{/unless}}
+						{{/each}}
+					</ul>
 
 	    </div>
 
@@ -37,19 +31,19 @@
 
 			<h3>Burgers That Have Been Eaten!</h3>
 			
-			  {{#each burgers}}
-			    {{#if this.devoured}}
-			      <li>
-			      	{{this.id}}.{{this.name}}
-			      </li>
-			    {{/if}}
-			  {{/each}}
-			
+				<ul>
+					{{#each burgers}}
+						{{#if devoured}}
+							<ul>{{this.id}}. {{this.name}}</ul> 
+						{{/if}}
+					{{/each}}
+				</ul>
+
 	    </div>
 
   	</div>
 
-	<!-- BURGER INPUT TEXT AND SUBMIT AREA-->
+	<!-- ADD A BURGER -->
 	<div class="row">
 	    <div class="center col-sm-12">
 			<h3>Add A Burger!</h3>

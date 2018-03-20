@@ -1,24 +1,24 @@
 const orm = require("../config/orm.js");
 
-var burger = {
-    show: function(cb){
-        orm.getAll("burgers", function(res){
-             cb(res);
-        });
-    },
-
-    create: function(value,cb){
-        orm.add("burgers","name", value, function(res){
-             cb(res);
-        });
-    },
-
-    update: function(id,cb){
-        orm.updateBurger("burgers","devoured", false, "id = ", + id, function(res){
-            cb(res);
-        });
-    }
-
+const cat = {
+  all: function(cb) {
+    orm.all("burgers", function(res) {
+      cb(res);
+    });
+  },
+  // The variables cols and vals are arrays.
+  create: function(cols, vals, cb) {
+    orm.create("burgers", cols, vals, function(res) {
+      cb(res);
+    });
+  },
+  update: function(objColVals, condition, cb) {
+    orm.update("burgers", objColVals, condition, function(res) {
+      cb(res);
+    });
+  },
+  
 };
 
-module.exports = burger;
+// Export the database functions for the controller (catsController.js).
+module.exports = cat;
