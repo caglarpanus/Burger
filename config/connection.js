@@ -14,9 +14,7 @@ else{
         password: process.env.DB_PASS,
         database: process.env.DB_DATABASE
     });
-}
-
-
+};
 connection.connect(function(err){
     if(err){
         console.log("MySQL Error Connecting " + err.stack);
